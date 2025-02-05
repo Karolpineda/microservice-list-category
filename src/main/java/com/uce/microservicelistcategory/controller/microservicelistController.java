@@ -1,5 +1,6 @@
-package com.uce.microserviceupdatecategory.controller;
+package com.uce.microservicelistcategory.controller;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -12,36 +13,30 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.uce.microserviceupdatecategory.model.Category;
-import com.uce.microserviceupdatecategory.repository.microservicecreatecategoryRepository;
+import com.uce.microservicelistcategory.model.Category;
+import com.uce.microservicelistcategory.repository.microservicelistcategoryRepository;
 
 @RestController
 @RequestMapping("/api/categories")
-public class microserviceupdateController {
+public class microservicelistController {
 
     @Autowired
-    private microservicecreatecategoryRepository microservicecreatecategoryRepository;
+    private microservicelistcategoryRepository microservicelistcategoryRepository;
 
     // Endpoint Health para verificar si el microservicio está activo
     @GetMapping("/health")
     public ResponseEntity<String> healthCheck() {
-        return ResponseEntity.ok("Microservicio Update Category está en funcionamient0");
+        return ResponseEntity.ok("Microservicio LIST Category está en funcionamiento");
     }
 
-    // Actualizar una categoría existente
-    @PutMapping("/{id}")
-    public ResponseEntity<Category> updateCategory(@PathVariable UUID id, @RequestBody Category categoryDetails) {
-        Optional<Category> existingCategory = microservicecreatecategoryRepository.findById(id);
-        if (existingCategory.isPresent()) {
-            Category category = existingCategory.get();
-            // Actualizar el valor de la categoría con el nuevo nombre
-            category.setName(categoryDetails.getName());
-            
-            // Guardar la categoría actualizada en la base de datos
-            Category updatedCategory = microservicecreatecategoryRepository.save(category);
-            return ResponseEntity.ok(updatedCategory);  // Devuelve la categoría actualizada
+    // Endpoint para listar todas las categorías
+    @GetMapping("/list")
+    public ResponseEntity<List<Category>> getAllCategories() {
+        List<Category> categories = microservicelistcategoryRepository.findAll();
+        if (categories.isEmpty()) {
+            return ResponseEntity.noContent().build();  // Si no hay categorías, devuelve 204 No Content
         }
-        return ResponseEntity.notFound().build();  // Si la categoría no existe, devuelve un 404
+        return ResponseEntity.ok(categories);  // Devuelve la lista de categorías
     }
-}
 
+}
