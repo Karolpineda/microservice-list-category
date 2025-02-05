@@ -20,4 +20,4 @@ RUN mvn clean package -DskipTests
 EXPOSE 8086
 
 # Ejecutar el JAR
-CMD ["java", "-jar", "target/microservice-create-category-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "target/microservice-list-category-0.0.1-SNAPSHOT.jar"]
