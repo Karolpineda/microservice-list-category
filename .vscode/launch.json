@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-MicroserviceCreateCategoryApplication<microservice-create-category_9728c705>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.uce.microservicecreatecategory.MicroserviceCreateCategoryApplication",
+            "projectName": "microservice-create-category_9728c705",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-MicroserviceCreateCategoryApplication<microservice-create-category>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.uce.microservicecreatecategory.MicroserviceCreateCategoryApplication",
+            "projectName": "microservice-create-category",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
