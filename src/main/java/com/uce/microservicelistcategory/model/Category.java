@@ -1,4 +1,4 @@
-package com.uce.microserviceupdatecategory.model;
+package com.uce.microservicelistcategory.model;
 
 import java.util.UUID;
 
