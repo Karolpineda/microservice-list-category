@@ -54,6 +54,6 @@ The application will run at: http://localhost:8087
 
 ## API Usage
 ### List a Category
-Endpoint: POST /api/categories/list
+Endpoint: GET /api/categories/list
 
 This endpoint allows you to list a category in the database using the provided data.
